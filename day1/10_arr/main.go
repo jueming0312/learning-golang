@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func main() {
 	// 数组定义
@@ -26,4 +30,21 @@ func main() {
 		fmt.Println(num3[i])
 	}
 
+	// 随机生成5个数，并将其反转
+	// 1.随机生成5个数 rand.Intn()
+	//2.将随机数放到一个数组
+	//3.反转打印
+	var intArr [5]int
+	rand.NewSource(time.Now().UnixNano()) // 生成随机数种子
+	for i := 0; i < len(intArr); i++ {
+		intArr[i] = rand.Intn(100)
+	}
+	fmt.Println("反转前", intArr)
+	// 反转打印
+	for i := 0; i < len(intArr)/2; i++ {
+		temp := intArr[i]
+		intArr[i] = intArr[len(intArr)-1-i]
+		intArr[len(intArr)-1-i] = temp
+	}
+	fmt.Println("反转后", intArr)
 }
