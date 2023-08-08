@@ -22,4 +22,8 @@ func main() {
 		fmt.Printf("index=%d value=%v\n", i, v)
 	}
 
+	for i := 0; i < len(num3); i++ {
+		fmt.Println(num3[i])
+	}
+
 }
